@@ -1,14 +1,12 @@
-const mongoose = require("mongoose");
-
-// define Schema Class
+const { Timestamp } = require('mongodb');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create a Schema object
-const prouctSchema = new Schema({
-  product: { type: String, required: true },
-  price: { type: Number, required: true },
-});
+const productSchema = new Schema({
+    name: { type: String, require: true },
+    price: { type: Number, require: true },
+}, { Timestamp: true });
 
-// This Activity creates the collection called productmodels
-const Productmodel = mongoose.model("Productmodel", prouctSchema);
-module.exports = Productmodel;
+const Product = mongoose.model("Product", productSchema);
+
+module.exports = Product;

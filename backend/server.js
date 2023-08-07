@@ -19,16 +19,10 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }
 
 const connection = mongoose.connection;
 connection.once('open', () => {
-  console.log("MongoDB database connection established successfully");
+    console.log("MongoDB database connection established successfully");
 })
 
+const shopRouter = require('./routes/products');
+app.use('/shop', shopRouter);
 
-// import routes
-const productRouter = require('./routes/product');
-
-// adding /product to before all routes
-app.use('/product', productRouter);
-
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
-});
+app.listen(port, () => console.log(`Server running on ${port}`));

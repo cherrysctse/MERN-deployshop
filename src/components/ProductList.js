@@ -29,13 +29,13 @@ const ProductList = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/shop/`)
+        axios.get(`https://deploybkendshop.onrender.com/shop/`)
             .then(response => { setProducts(response.data) })
             .catch(err => console.log(err))
     }, []);
 
     const deleteProduct = (id) => {
-        axios.delete(`http://localhost:5000/shop/delete/${id}`)
+        axios.delete(`https://deploybkendshop.onrender.com/shop/delete/${id}`)
             .then(response => {
                 console.log(response.data);
                 setProducts(products.filter(p => p._id !== id))
@@ -48,8 +48,8 @@ const ProductList = () => {
                 name: `${products.find(p => p._id === id).name}`,
                 price: `${products.find(p => p._id === id).price}`
             };
-            await axios.put(`http://localhost:5000/shop/sold/${id}`, targetProduct);
-            const response = await axios.get('http://localhost:5000/shop');
+            await axios.put(`https://deploybkendshop.onrender.com/shop/sold/${id}`, targetProduct);
+            const response = await axios.get('https://deploybkendshop.onrender.com/shop');
             setProducts(response.data);
         } catch (err) {
             console.log(err);

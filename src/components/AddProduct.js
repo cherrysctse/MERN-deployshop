@@ -14,7 +14,7 @@ const AddProduct = () => {
             price: price
         }
         console.log(productVar);
-        axios.post(`http://localhost:5000/shop/add`, productVar)
+        axios.post(`https://deploybkendshop.onrender.com/shop/add`, productVar)
             .then(res => { window.location = "/" });
     }
 

@@ -12,7 +12,7 @@ const UpdateProduct = () => {
     const [price, setPrice] = useState('');
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/shop/${id}`)
+        axios.get(`https://deploybkendshop.onrender.com/shop/${id}`)
             .then((response) => {
                 setName(response.data.name)
                 setPrice(response.data.price)
@@ -27,7 +27,7 @@ const UpdateProduct = () => {
         };
         console.log(ProductVar);
         axios
-            .post(`http://localhost:5000/shop/update/${id}`, ProductVar)
+            .post(`https://deploybkendshop.onrender.com/shop/update/${id}`, ProductVar)
             .then((res) => { window.location = "/" });
     };
 
